@@ -1,0 +1,316 @@
+// 最外的盒子
+#layout {
+    max-width: 640px;
+    min-width: 300px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative; // height: 100vh;
+    height: auto;
+    .mast {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .5);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        display: none;
+    }
+}
+
+#wrap {
+    height: 100%;
+}
+
+//第二层盒子
+//连载动漫  和  专题列表
+#content {
+    display: none;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    transform: translateX(100%);
+    background-color: #f0f0f0;
+    z-index: 999;
+    .dongman-top {
+        width: 100%;
+        height: 40px;
+        padding: 0 10px 0 10px;
+        text-align: center;
+        line-height: 40px;
+        border-bottom: 1px solid #aaa;
+        box-shadow: 0 2px 5px #bbb;
+        >span {
+            display: block;
+            height: 100%;
+            float: left;
+            color: red;
+            font-size: 20px;
+        }
+    }
+    .lzdm {
+        >ul {
+            >li {
+                width: 100%;
+                height: 130px;
+                border-bottom: 1px solid #aaa;
+                display: flex;
+                >a {
+                    width: 90px;
+                    height: 120px;
+                    display: block;
+                    margin: 5px;
+                    float: left;
+                    >img {
+                        width: 100%;
+                    }
+                }
+                .info {
+                    overflow: hidden;
+                    word-break: keep-all;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    height: 100%;
+                    >a {
+                        font-size: 14px;
+                        line-height: 25px;
+                    }
+                    >span {
+                        line-height: 20px;
+                        display: block;
+                        color: #aaa;
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+    .ztlb {
+        >ul {
+            padding: 0px 12px 0 12px;
+            >li {
+                width: 100%;
+                height: 170px;
+                margin: 8px 0px 8px 0px;
+                border-bottom: 1px solid #aaa;
+                >a {
+                    &:first-of-type {
+                        display: block;
+                        width: 100%;
+                        >img {
+                            width: 100%;
+                        }
+                    }
+                    &:last-of-type {
+                        line-height: 30px;
+                        color: #888;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//侧拉框
+#sidebar {
+    background-color: white;
+    position: absolute;
+    height: 0px;
+    width: 0px;
+    left: 0px;
+    top: 0;
+    display: none;
+    z-index: 99;
+    .logo {
+        width: 100%;
+        height: 70px;
+        text-align: center;
+        line-height: 70px;
+        color: red;
+    }
+    >ul {
+        >li {
+            padding: 0 6px 0 6px;
+            width: 100%;
+            height: 35px;
+            text-align: center;
+            line-height: 35px;
+            border-bottom: 1px solid #aaa;
+            position: relative;
+            &:first-child {
+                border-top: 1px solid #aaa;
+            }
+            >p {
+                float: left;
+            }
+            .dup {
+                position: absolute;
+                left: 6px;
+            }
+            .duspan {
+                position: absolute;
+                right: 6px;
+            }
+            >span {
+                float: right;
+                color: #aaa;
+            }
+        }
+    }
+}
+
+//topbar 部分
+#topbar {
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid #666;
+    background-color: #eee;
+    >div {
+        float: left;
+        height: 100%;
+        line-height: 40px;
+        text-align: center;
+        &:first-child {
+            width: 10%;
+            padding: 12px;
+            >i {
+                display: block;
+                width: 20px;
+                height: 2px;
+                background-color: red;
+                margin-top: 5px;
+                &:first-child {
+                    margin-top: 0;
+                }
+            }
+        }
+        &:nth-of-type(2) {
+            width: 80%;
+            font-weight: normal;
+        }
+        &:last-of-type {
+            width: 10%;
+            >i {
+                &::before {
+                    color: red;
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}
+
+//轮播图 部分
+#slide {
+    .swiper-container {
+        width: 100%;
+        .swiper-wrapper {
+            .swiper-slide {
+                position: relative;
+                >a {
+                    display: block;
+                    img {
+                        width: 100%; // height: 100%;
+                    }
+                }
+                >div {
+                    width: 100%;
+                    height: 30px;
+                    padding-left: 10px;
+                    line-height: 30px;
+                    position: absolute;
+                    background-color: rgba(0, 0, 0, 0.5);
+                    bottom: 0;
+                    >p {
+                        color: #999;
+                    }
+                }
+            }
+        }
+        .swiper-pagination-bullets {
+            padding-right: 10px;
+            bottom: 6px;
+            text-align: right;
+        }
+    }
+}
+
+// tab栏
+#tab {
+    .tab-top {
+        >ul {
+            width: 100%;
+            >li {
+                width: 25%;
+                height: 100%;
+                float: left;
+                background-color: #eee;
+                >a {
+                    text-align: center;
+                    line-height: 45px;
+                    width: 100%;
+                    height: 45px;
+                    display: block;
+                    &.active {
+                        color: red;
+                        border-bottom: 2px solid red;
+                    }
+                }
+            }
+        }
+    }
+    .tab-content {
+        >ul {
+            >li {
+                width: 50%;
+                float: left;
+                padding: 10px 5px 10px 5px;
+                border-bottom: 1px solid #aaa;
+                background-color: #f0f0f0;
+                &:nth-of-type(2n) {
+                    border-left: 1px solid #aaa;
+                }
+                &:first-of-type {
+                    border-top: 1px solid #aaa;
+                }
+                &:nth-of-type(2) {
+                    border-top: 1px solid #aaa;
+                }
+                >div {
+                    width: 100%;
+                    position: relative;
+                    >a {
+                        width: 100%;
+                        height: 238px;
+                        display: block;
+                        >img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                    >span {
+                        width: 100%;
+                        height: 25px;
+                        background-color: rgba(0, 0, 0, 0.5);
+                        display: block;
+                        position: absolute;
+                        bottom: 0;
+                        text-align: center;
+                        line-height: 25px;
+                        color: white;
+                    }
+                }
+                >p {
+                    display: block;
+                    overflow: hidden;
+                    word-break: keep-all;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    text-align: center;
+                    line-height: 30px;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}

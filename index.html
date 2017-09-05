@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/iconfont.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <!-- 最外层的盒子  -->
+    <div id="layout">
+
+        <!--  主页的部分  -->
+        <div id="wrap" class="clearfix">
+            <!-- 头部  -->
+            <header id="topbar">
+                <div class="dropDown">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </div>
+                <div class="title">
+                    <h3>红旅动漫</h3>
+                </div>
+                <div class="select"><i class="iconfont icon-sousuo"></i></div>
+            </header>
+            <!-- 轮播图  -->
+            <section id="slide">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </section>
+            <!-- tab栏  -->
+            <section id="tab">
+                <div class="tab-top">
+                    <ul class="clearfix">
+                        <li><a class='active' href="#">新增连载</a></li>
+                        <li><a href="javascript:void(0)">新增完结</a></li>
+                        <li><a href="javascript:void(0)">推荐连载</a></li>
+                        <li><a href="javascript:void(0)">推荐完结</a></li>
+                    </ul>
+                </div>
+                <div class="tab-content">
+                    <ul>
+                        <script type="text/html" id="temp-tab-content">
+                            {{each}}
+                            <li>
+                                <div>
+                                    <a href="{{$value.url}}"><img src="{{$value.img}}" alt=""></a>
+                                    <span>{{$value.update}}</span>
+                                </div>
+                                <p>{{$value.name}}</p>
+                            </li>
+                            {{/each}}
+                        </script>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <!-- 遮罩层  -->
+        <div class="mast"></div>
+
+        <!-- 侧拉框  -->
+        <div id="sidebar">
+            <div class="logo">
+                <h2>红旅动漫</h2>
+            </div>
+            <ul>
+                <li class="dongman">
+                    <p>连载动漫-get</p><span>&gt;</span>
+                </li>
+                <li class="zhuanti">
+                    <p class="dup">专题列表-get</p><span class="duspan">&gt;</span>
+                </li>
+                <li>
+                    <p>关于</p><span>&gt;</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 连载动画专题列表的页面  -->
+        <div id="content">
+            <script type="text/html" id="temp-content">
+                {{if list[0].name}}
+                <div class="lzdm">
+                    <div class="dongman-top">
+                        <span class="back">&lt;</span>
+                        <h4>连载动漫</h4>
+                    </div>
+                    <ul>
+                        {{each list}}
+                        <li class="clearfix">
+                            <a href="{{$value.url}}"><img src="{{$value.img}}" alt=""></a>
+                            <div class="info">
+                                <a href="{{$value.url}}">{{$value.name}}</a>
+                                <span>{{$value.episode}}</span>
+                                <span>{{$value.updateTime}}</span>
+                                <span>下载次数:{{$value.downloadCount}}</span>
+                            </div>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+                {{else}}
+                <div class="ztlb">
+                    <div class="dongman-top">
+                        <span class="back">&lt;</span>
+                        <h4>专题列表</h4>
+                    </div>
+                    <ul>
+                        {{each list}}
+                        <li class="clearfix">
+                            <a href="{{$value.url}}"><img src="{{$value.img}}" alt=""></a>
+                            <a>{{$value.title}}</a>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+                {{/if}}
+            </script>
+        </div>
+    </div>
+</body>
+<script src="lib/zepto.min.js"></script>
+<script src="lib/swiper.min.js"></script>
+<script src="js/index.js"></script>
+<script src="lib/template-web.js"></script>
+
+</html>

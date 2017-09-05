@@ -1,0 +1,47 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+div,
+img,
+input,
+ul,
+li,
+a,
+i,
+button {
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+input {
+  outline: none;
+}
+img {
+  vertical-align: bottom;
+  border: 0;
+}
+.clearfix::after,
+.clearfix::before {
+  content: '';
+  display: block;
+}
+.clearfix::after {
+  clear: both;
+}
+.clearfix {
+  *zoom: 1;
+}
